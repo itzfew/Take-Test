@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
         loadPDF(pdfUrl);
     }
 
-    let questionIndex = 0;
     subjectsData.forEach((subject, index) => {
         // Add to subject list
         const subjectItem = document.createElement('li');
@@ -29,12 +28,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function loadPDF(url) {
+        // PDF.js API initialization
         const loadingTask = pdfjsLib.getDocument(url);
         loadingTask.promise.then(pdf => {
             const numPages = pdf.numPages;
             const viewer = document.getElementById('pdfViewer');
             viewer.innerHTML = ''; // Clear previous pages
 
+            // Render each page
             for (let pageNum = 1; pageNum <= numPages; pageNum++) {
                 pdf.getPage(pageNum).then(page => {
                     const scale = 1.5;
