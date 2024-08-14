@@ -31,27 +31,30 @@ document.addEventListener('DOMContentLoaded', () => {
     function loadPDF(url) {
         const loadingTask = pdfjsLib.getDocument(url);
         loadingTask.promise.then(pdf => {
-            pdf.getPage(1).then(page => {
-                const scale = 1.5;
-                const viewport = page.getViewport({ scale });
+            const numPages = pdf.numPages;
+            const viewer = document.getElementById('pdfViewer');
+            viewer.innerHTML = ''; // Clear previous pages
 
-                // Prepare canvas using PDF page dimensions
-                const canvas = document.createElement('canvas');
-                const context = canvas.getContext('2d');
-                canvas.height = viewport.height;
-                canvas.width = viewport.width;
-                pdfViewer.appendChild(canvas);
+            for (let pageNum = 1; pageNum <= numPages; pageNum++) {
+                pdf.getPage(pageNum).then(page => {
+                    const scale = 1.5;
+                    const viewport = page.getViewport({ scale });
 
-                // Render PDF page into canvas context
-                const renderContext = {
-                    canvasContext: context,
-                    viewport: viewport
-                };
-                const renderTask = page.render(renderContext);
-                renderTask.promise.then(() => {
-                    console.log('Page rendered');
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d');
+                    canvas.height = viewport.height;
+                    canvas.width = viewport.width;
+                    viewer.appendChild(canvas);
+
+                    const renderContext = {
+                        canvasContext: context,
+                        viewport: viewport
+                    };
+                    page.render(renderContext);
                 });
-            });
+            }
+        }).catch(error => {
+            console.error('Error loading PDF:', error);
         });
     }
 
