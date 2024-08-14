@@ -21,7 +21,7 @@ h1, h2 {
     text-align: center;
 }
 
-form div {
+form div, #testContainer > div {
     margin-bottom: 15px;
 }
 
