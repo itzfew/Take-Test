@@ -3,30 +3,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const previousResultsContent = document.getElementById('previousResultsContent');
     const pdfViewer = document.getElementById('pdfViewer');
 
-    // Load and display the PDF
     const pdfUrl = localStorage.getItem('pdfUrl');
     if (pdfUrl) {
         pdfViewer.src = pdfUrl;
     }
 
-    // Load current test results
     const currentResults = JSON.parse(localStorage.getItem('testAnswers') || '[]');
     displayResults(currentResults, resultsContent);
 
-    // Load previous test results
     const previousResults = JSON.parse(localStorage.getItem('allResults') || '[]');
     displayPreviousResults(previousResults, previousResultsContent);
 });
 
 function displayResults(results, container) {
-    if (results.length === 0) {
+    if (Object.keys(results).length === 0) {
         container.innerHTML = '<p>No results available.</p>';
         return;
     }
 
     let html = '<ul>';
-    results.forEach(result => {
-        html += `<li><strong>${result.question}:</strong> ${result.answer}</li>`;
+    Object.entries(results).forEach(([question, answer]) => {
+        html += `<li><strong>${question}:</strong> ${answer}</li>`;
     });
     html += '</ul>';
 
