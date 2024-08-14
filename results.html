@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Results</title>
+    <title>Test Results</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Results</h1>
+        <h1>Test Results</h1>
+        
         <div id="pdfViewerContainer">
             <h2>Uploaded Question Paper</h2>
             <embed id="pdfViewer" type="application/pdf" width="100%" height="600px" />
@@ -16,12 +17,12 @@
 
         <div id="currentResults">
             <h2>Current Test Results</h2>
-            <div id="resultsContent"></div>
+            <div id="resultsContent">Loading...</div>
         </div>
 
         <div id="previousResults">
             <h2>Previous Results</h2>
-            <div id="previousResultsContent"></div>
+            <div id="previousResultsContent">Loading...</div>
         </div>
 
         <button onclick="window.location.href='index.html'">Back to Setup</button>
