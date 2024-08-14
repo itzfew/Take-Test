@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const questionContainer = document.getElementById('questionContainer');
     const timerElement = document.getElementById('timeLeft');
     const submitButton = document.getElementById('submitButton');
-
+    
     const subjectsData = JSON.parse(localStorage.getItem('subjectsData') || '[]');
     const pdfUrl = localStorage.getItem('pdfUrl');
     const answers = {};
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     examTitle.textContent = 'Test';
     if (pdfUrl) {
-        pdfViewer.src = pdfUrl;
+        loadPDF(pdfUrl);
     }
 
     let questionIndex = 0;
@@ -27,6 +27,33 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         subjectList.appendChild(subjectItem);
     });
+
+    function loadPDF(url) {
+        const loadingTask = pdfjsLib.getDocument(url);
+        loadingTask.promise.then(pdf => {
+            pdf.getPage(1).then(page => {
+                const scale = 1.5;
+                const viewport = page.getViewport({ scale });
+
+                // Prepare canvas using PDF page dimensions
+                const canvas = document.createElement('canvas');
+                const context = canvas.getContext('2d');
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+                pdfViewer.appendChild(canvas);
+
+                // Render PDF page into canvas context
+                const renderContext = {
+                    canvasContext: context,
+                    viewport: viewport
+                };
+                const renderTask = page.render(renderContext);
+                renderTask.promise.then(() => {
+                    console.log('Page rendered');
+                });
+            });
+        });
+    }
 
     function displayQuestions(subject, subjectIndex) {
         let questionsHtml = '';
