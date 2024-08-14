@@ -18,24 +18,7 @@
             
             <div id="subjectsContainer">
                 <h2>Subjects</h2>
-                <div class="subject">
-                    <label for="subjectName">Subject Name:</label>
-                    <input type="text" class="subjectName" value="Biology">
-                    <label for="questionCount">Number of Questions:</label>
-                    <input type="number" class="questionCount" value="100">
-                </div>
-                <div class="subject">
-                    <label for="subjectName">Subject Name:</label>
-                    <input type="text" class="subjectName" value="Physics">
-                    <label for="questionCount">Number of Questions:</label>
-                    <input type="number" class="questionCount" value="50">
-                </div>
-                <div class="subject">
-                    <label for="subjectName">Subject Name:</label>
-                    <input type="text" class="subjectName" value="Chemistry">
-                    <label for="questionCount">Number of Questions:</label>
-                    <input type="number" class="questionCount" value="50">
-                </div>
+                <!-- Default subjects will be displayed here -->
             </div>
             
             <button type="button" id="addSubjectButton">Add Subject</button>
@@ -50,6 +33,7 @@
         
         <div id="testContainer" class="hidden">
             <h2>Test</h2>
+            <div id="navigationContainer"></div>
             <div id="questionsContainer"></div>
             <button id="submitButton">Submit</button>
             <div id="timer">Time Left: <span id="timeLeft"></span></div>
