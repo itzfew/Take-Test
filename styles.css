@@ -22,41 +22,12 @@ h1, h2 {
     text-align: center;
 }
 
-form div, .testBody > div {
-    margin-bottom: 15px;
-}
-
-input[type="text"], input[type="number"], input[type="file"] {
-    width: 100%;
-    padding: 8px;
-    border-radius: 4px;
-    border: 1px solid #ddd;
-    margin-top: 5px;
-}
-
-button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-button:hover {
-    background: #0056b3;
-}
-
-#pdfContainer, #pdfViewerContainer {
+#testHeader {
     margin-bottom: 20px;
 }
 
-#pdfViewer {
-    border: 1px solid #ddd;
-    border-radius: 5px;
+#timer {
+    font-weight: bold;
 }
 
 .testBody {
@@ -64,10 +35,22 @@ button:hover {
     justify-content: space-between;
 }
 
+#pdfContainer {
+    width: 60%;
+    position: relative;
+}
+
+#pdfViewer {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    height: 600px;
+    overflow-y: scroll;
+}
+
 #subjectNavigation {
-    width: 25%;
-    border-right: 2px solid #ddd;
+    width: 30%;
     padding-right: 20px;
+    border-right: 2px solid #ddd;
 }
 
 #subjectList {
@@ -81,7 +64,7 @@ button:hover {
 }
 
 #questionContainer {
-    width: 75%;
+    width: 60%;
 }
 
 .question {
@@ -96,28 +79,18 @@ button:hover {
     margin-right: 10px;
 }
 
-#timer {
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-#resultsContent, #previousResultsContent {
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
     margin-top: 20px;
 }
 
-.result {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background: #fafafa;
-    margin-bottom: 10px;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
-    margin-bottom: 5px;
+button:hover {
+    background: #0056b3;
 }
