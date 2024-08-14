@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Simulator</title>
+    <title>Test Setup</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Test Simulator</h1>
+        <h1>Test Setup</h1>
         
         <form id="examForm">
             <div>
@@ -18,7 +18,7 @@
             
             <div id="subjectsContainer">
                 <h2>Subjects</h2>
-                <!-- Default subjects will be displayed here -->
+                <!-- Default subjects will be populated here -->
             </div>
             
             <button type="button" id="addSubjectButton">Add Subject</button>
@@ -30,16 +30,8 @@
             
             <button type="button" id="startButton">Start Test</button>
         </form>
-        
-        <div id="testContainer" class="hidden">
-            <h2>Test</h2>
-            <div id="navigationContainer"></div>
-            <div id="questionsContainer"></div>
-            <button id="submitButton">Submit</button>
-            <div id="timer">Time Left: <span id="timeLeft"></span></div>
-        </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="setup.js"></script>
 </body>
 </html>
