@@ -1,16 +1,17 @@
 body {
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
     background-color: #f4f4f4;
 }
 
 .container {
-    width: 80%;
-    max-width: 900px;
+    width: 90%;
+    max-width: 1200px;
     background: #fff;
     padding: 20px;
     border-radius: 8px;
@@ -21,16 +22,16 @@ h1, h2 {
     text-align: center;
 }
 
-form div, #testContainer > div {
+form div, .testBody > div {
     margin-bottom: 15px;
 }
 
 input[type="text"], input[type="number"], input[type="file"] {
     width: 100%;
     padding: 8px;
-    margin-top: 5px;
     border-radius: 4px;
     border: 1px solid #ddd;
+    margin-top: 5px;
 }
 
 button {
@@ -49,12 +50,38 @@ button:hover {
     background: #0056b3;
 }
 
-.hidden {
-    display: none;
+#pdfContainer, #pdfViewerContainer {
+    margin-bottom: 20px;
 }
 
-#questionsContainer {
-    margin-top: 20px;
+#pdfViewer {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.testBody {
+    display: flex;
+    justify-content: space-between;
+}
+
+#subjectNavigation {
+    width: 25%;
+    border-right: 2px solid #ddd;
+    padding-right: 20px;
+}
+
+#subjectList {
+    list-style-type: none;
+    padding: 0;
+}
+
+#subjectList li {
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+#questionContainer {
+    width: 75%;
 }
 
 .question {
@@ -65,25 +92,32 @@ button:hover {
     background: #fafafa;
 }
 
-#navigationContainer {
-    margin-bottom: 20px;
-}
-
-.navigationButton {
-    margin: 5px;
-    padding: 10px;
-    background: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.navigationButton:hover {
-    background: #0056b3;
+.question input[type="radio"] {
+    margin-right: 10px;
 }
 
 #timer {
-    margin-top: 20px;
     font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#resultsContent, #previousResultsContent {
+    margin-top: 20px;
+}
+
+.result {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #fafafa;
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 5px;
 }
