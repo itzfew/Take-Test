@@ -1,0 +1,13 @@
+{
+  "name": "Test Simulator",
+  "short_name": "Test Simulator",
+  "start_url": "index.html",
+  "display": "standalone",
+  "theme_color": "#0d181a",
+  "background_color": "#0d181a",
+  "icons": [{
+    "src": "LogoTS.png",
+    "type": "image/png",
+    "sizes": "48x48 72x72 96x96 128x128 144x144 152x152 192x192 512x512"
+  }]
+}
