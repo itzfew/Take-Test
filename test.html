@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.7.0/pdf.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -12,11 +13,11 @@
             <h1 id="examTitle"></h1>
             <div id="timer">Time Left: <span id="timeLeft"></span></div>
         </div>
-        
+
         <div class="testBody">
             <div id="pdfContainer">
                 <h2>Question Paper</h2>
-                <embed id="pdfViewer" type="application/pdf" width="100%" height="600px" />
+                <div id="pdfViewer"></div>
             </div>
 
             <div id="subjectNavigation">
