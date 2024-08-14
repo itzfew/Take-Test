@@ -3,31 +3,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const previousResultsContent = document.getElementById('previousResultsContent');
     const pdfViewer = document.getElementById('pdfViewer');
 
-    // Load current results
-    const currentResults = JSON.parse(localStorage.getItem('testResults') || '{}');
-    displayResults(currentResults, resultsContent);
-
-    // Load and display previous results
-    const previousResults = JSON.parse(localStorage.getItem('allResults') || '[]');
-    displayPreviousResults(previousResults, previousResultsContent);
-
-    // Load the uploaded PDF
+    // Load and display the PDF
     const pdfUrl = localStorage.getItem('pdfUrl');
     if (pdfUrl) {
         pdfViewer.src = pdfUrl;
     }
+
+    // Load current test results
+    const currentResults = JSON.parse(localStorage.getItem('testAnswers') || '[]');
+    displayResults(currentResults, resultsContent);
+
+    // Load previous test results
+    const previousResults = JSON.parse(localStorage.getItem('allResults') || '[]');
+    displayPreviousResults(previousResults, previousResultsContent);
 });
 
 function displayResults(results, container) {
-    if (Object.keys(results).length === 0) {
+    if (results.length === 0) {
         container.innerHTML = '<p>No results available.</p>';
         return;
     }
 
     let html = '<ul>';
-    for (const [question, answer] of Object.entries(results)) {
-        html += `<li><strong>${question}:</strong> ${answer}</li>`;
-    }
+    results.forEach(result => {
+        html += `<li><strong>${result.question}:</strong> ${result.answer}</li>`;
+    });
     html += '</ul>';
 
     container.innerHTML = html;
@@ -44,9 +44,9 @@ function displayPreviousResults(results, container) {
         html += `<div class="result">
             <h3>Result ${index + 1}</h3>
             <ul>`;
-        for (const [question, answer] of Object.entries(result)) {
-            html += `<li><strong>${question}:</strong> ${answer}</li>`;
-        }
+        result.forEach(res => {
+            html += `<li><strong>${res.question}:</strong> ${res.answer}</li>`;
+        });
         html += `</ul>
         </div>`;
     });
